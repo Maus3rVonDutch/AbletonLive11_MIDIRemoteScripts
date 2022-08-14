@@ -734,8 +734,9 @@ class ChannelStripController(MackieControlComponent):
         
         # Maus3r next 3 lines ensure banks move to selected track.  NB only apply auto-banking when not in "returns" mode
         if self._ChannelStripController__view_returns == False:
+            selected_track = self.song().view.selected_track
             all_tracks = self.song().visible_tracks
-            trackIndex = list(all_tracks).index(st)
+            trackIndex = list(all_tracks).index(selected_track)
             assignmentMode = self._ChannelStripController__assignment_mode
             MackieControlComponent.log(self, f'track index [{trackIndex}] - mode [{assignmentMode}]')
 
